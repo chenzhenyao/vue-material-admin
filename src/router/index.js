@@ -17,11 +17,19 @@ export default new Router({
     component: require('../views/Login')
   }, {
     path: '/',
-    component: require('../views/base/Yard'),
+    component: require('../views/Yard'),
     children: [{
-      name: 'home',
       path: 'home',
       component: lazyLoading('Home')
+    }, {
+      path: '*',
+      component: lazyLoading('schedule/Index')
+    }, {
+      path: 'example1',
+      component: lazyLoading('example/Example1')
+    }, {
+      path: 'example2',
+      component: lazyLoading('example/Example2')
     }]
   }]
 })
